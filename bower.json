@@ -1,0 +1,12 @@
+{
+    "name": "0xDEFEИ5E",
+    "version": "0.0.0",
+    "description": "Hexagonal Tower Defense",
+    "homepage": "https://github.com/mvasilkov/0xDEF",
+    "main": "app.js",
+    "dependencies": {
+        "requirejs": ""
+    },
+    "license": "MIT",
+    "private": true
+}
