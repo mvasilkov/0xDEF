@@ -22,6 +22,13 @@ define(['lib/exoskeleton', 'app/conf'], function (Backbone, conf) {
 
             this.c.fillStyle = conf.CELL_COLOR
             this.c.fill()
+            if (conf.DEBUG_CELL_UV) {
+                this.c.font = '12px Consolas, Monaco, monospace'
+                this.c.textBaseline = 'middle'
+                this.c.fillStyle = conf.BACK_COLOR
+                this.c.fillText('u=' + this.u, -12, -5)
+                this.c.fillText('v=' + this.v, -12, 5)
+            }
             this.c.restore()
         }
     })

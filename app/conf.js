@@ -5,7 +5,8 @@ define(function () {
         CELL_COLOR: '#c4d6d6',
         // size_i < size_o
         CELL_SIZE_I: 26,
-        CELL_SIZE_O: 30
+        CELL_SIZE_O: 30,
+        DEBUG_CELL_UV: 1
     }
     // viewport is 16:9
     conf.VIEWPORT_HEIGHT = 0|conf.VIEWPORT_WIDTH * 0.5625
