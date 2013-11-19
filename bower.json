@@ -5,7 +5,8 @@
     "homepage": "https://github.com/mvasilkov/0xDEF",
     "main": "app.js",
     "dependencies": {
-        "requirejs": ""
+        "requirejs": "",
+        "exoskeleton": ""
     },
     "license": "MIT",
     "private": true

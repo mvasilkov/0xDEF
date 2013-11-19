@@ -1,3 +1,8 @@
 0xDEFEИ5E
 ---------
 Hexagonal Tower Defense
+
+Dependencies
+------------
+`npm install -g bower`
+`bower install`
