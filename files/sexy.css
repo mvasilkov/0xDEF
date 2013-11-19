@@ -1,21 +1,23 @@
 body {
     background: #fbfbfb;
-    color: #34495e;
+    color: #7c7171;
     font: 15px/20px Consolas, Monaco, monospace;
     margin: 25px 0;
     text-align: center;
 }
 
 h1 {
-    color: #e74c3c;
+    color: #ec4d68;
     font: 400 85px/1 Consolas, Monaco, monospace;
     letter-spacing: -4px;
     margin: 0 0 -12px;
+    text-shadow: 2px 2px 0 #fbfbfb, 4px 4px 0 #db929e;
 }
 
 h1 small {
     font-size: 15px;
     letter-spacing: 0;
+    text-shadow: none;
 }
 
-p { margin: 0; }
+p { margin: 0 0 20px; }
