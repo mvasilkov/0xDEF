@@ -1,4 +1,4 @@
-define(['lib/exoskeleton', 'app/conf'], function (Backbone, conf) {
+define(['lib/exoskeleton', 'app/conf', 'app/util'], function (Backbone, conf, util) {
     var Cell = Backbone.View.extend({
         initialize: function (options) {
             this.c = options.canvas.getContext('2d')
@@ -8,8 +8,8 @@ define(['lib/exoskeleton', 'app/conf'], function (Backbone, conf) {
 
         render: function () {
             this.c.save()
-            this.c.translate(conf.VIEWPORT_WIDTH * 0.5 + conf.__ux * (this.u + this.v * 0.5) + 0.5,
-                conf.VIEWPORT_HEIGHT * 0.5 + conf.__vy * this.v + 0.5)
+            this.c.translate(conf.VIEWPORT_WIDTH * 0.5 + util.viewport.x(this.u, this.v) + 0.5,
+                conf.VIEWPORT_HEIGHT * 0.5 + util.viewport.y(this.v) + 0.5)
 
             this.c.beginPath()
             this.c.moveTo(0, conf.CELL_HEIGHT_I * -0.5)

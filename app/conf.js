@@ -10,15 +10,12 @@ define(function () {
     }
     // viewport is 16:9
     conf.VIEWPORT_HEIGHT = 0|conf.VIEWPORT_WIDTH * 0.5625
-    var r3by2 = Math.sqrt(3) * 0.5
+    var __R3$2 = Math.sqrt(3) * 0.5
     'IO'.split('').forEach(function (s) {
         conf['CELL_HEIGHT_' + s] = 0|conf['CELL_SIZE_' + s] * 2
-        conf['CELL_WIDTH_' + s] = 0|conf['CELL_HEIGHT_' + s] * r3by2 + 0.5
+        conf['CELL_WIDTH_' + s] = 0|conf['CELL_HEIGHT_' + s] * __R3$2 + 0.5
     })
     conf.BOARD_SIZE = computeBoardSize()
-    // recount (uv to xy)
-    conf.__ux = conf.CELL_SIZE_O * Math.sqrt(3)
-    conf.__vy = conf.CELL_SIZE_O * 1.5
     return conf
 
     function computeBoardSize() {
