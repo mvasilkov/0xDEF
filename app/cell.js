@@ -1,7 +1,7 @@
 define(['lib/exoskeleton', 'app/conf', 'app/util'], function (Backbone, conf, util) {
     var Cell = Backbone.View.extend({
         initialize: function (options) {
-            this.c = options.canvas.getContext('2d')
+            this.c = options.c
             this.u = options.u
             this.v = options.v
         },

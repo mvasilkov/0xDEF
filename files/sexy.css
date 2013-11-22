@@ -21,3 +21,15 @@ h1 small {
 }
 
 p { margin: 0 0 20px; }
+
+canvas {
+    display: block;
+    position: absolute;
+}
+
+.container {
+    height: 540px;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}

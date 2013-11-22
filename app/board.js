@@ -1,4 +1,6 @@
-define(['lib/exoskeleton', 'app/conf', 'app/cell'], function (Backbone, conf, Cell) {
+define(['lib/exoskeleton', 'app/conf', 'app/cell', 'app/interactive'],
+        function (Backbone, conf, Cell, Interactive) {
+
     var Board = Backbone.View.extend({
         initialize: function (options) {
             this.c = options.canvas.getContext('2d')
@@ -6,8 +8,10 @@ define(['lib/exoskeleton', 'app/conf', 'app/cell'], function (Backbone, conf, Ce
             this.cells = {}
             this.everyCell(function (u, v) {
                 this.cells[u] || (this.cells[u] = {})
-                this.cells[u][v] = new Cell({canvas: options.canvas, u: u, v: v})
+                this.cells[u][v] = new Cell({c: this.c, u: u, v: v})
             })
+
+            this.interactive = new Interactive({ canvas: options.iCanvas })
         },
 
         render: function () {
