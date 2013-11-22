@@ -4,6 +4,7 @@ define(['lib/exoskeleton', 'app/conf', 'app/util'], function (Backbone, conf, ut
             this.c = options.c
             this.u = options.u
             this.v = options.v
+            this.color = conf.CELL_COLOR
         },
 
         render: function () {
@@ -20,7 +21,7 @@ define(['lib/exoskeleton', 'app/conf', 'app/util'], function (Backbone, conf, ut
             this.c.lineTo(conf.CELL_WIDTH_I * -0.5, conf.CELL_HEIGHT_I * -0.25)
             this.c.closePath()
 
-            this.c.fillStyle = conf.CELL_COLOR
+            this.c.fillStyle = this.color
             this.c.fill()
             if (conf.DEBUG_CELL_UV) {
                 this.c.font = '12px Consolas, Monaco, monospace'

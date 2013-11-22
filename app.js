@@ -31,14 +31,20 @@ require(['lib/exoskeleton', 'app/conf', 'app/board'], function (Backbone, conf, 
                 iCanvas: this.canvas.interactive,
                 size: conf.BOARD_SIZE
             })
+            this.interactive = this.board.interactive
         },
 
         start: function () { this.board.render() }
     })
 
-    new App
+    var app = new App
 
     // start with an empty route
     location.hash = '#'
     Backbone.history.start()
+    ~
+    (function render() {
+        requestAnimationFrame(render)
+        app.interactive.render()
+    }())
 })
