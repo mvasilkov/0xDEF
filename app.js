@@ -11,15 +11,21 @@ require(['lib/exoskeleton', 'app/conf', 'app/board'], function (Backbone, conf, 
             bg:          document.getElementById('bg'),
             interactive: document.getElementById('interactive')
         },
+
         routes: { '': 'start' },
 
         initialize: function () {
+            var container = document.getElementsByClassName('container')[0]
+            container.style.width = conf.VIEWPORT_WIDTH + 'px'
+            container.style.height = conf.VIEWPORT_HEIGHT + 'px'
+
             for (var p in this.canvas) {
                 if (this.canvas.hasOwnProperty(p)) {
                     this.canvas[p].width = conf.VIEWPORT_WIDTH
                     this.canvas[p].height = conf.VIEWPORT_HEIGHT
                 }
             }
+
             this.board = new Board({
                 canvas: this.canvas.bg,
                 iCanvas: this.canvas.interactive,
@@ -31,5 +37,8 @@ require(['lib/exoskeleton', 'app/conf', 'app/board'], function (Backbone, conf, 
     })
 
     new App
+
+    // start with an empty route
+    location.hash = '#'
     Backbone.history.start()
 })

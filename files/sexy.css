@@ -28,8 +28,6 @@ canvas {
 }
 
 .container {
-    height: 540px;
     margin: 0 auto;
     position: relative;
-    width: 960px;
 }
