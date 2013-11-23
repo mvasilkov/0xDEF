@@ -1,11 +1,16 @@
 define(['lib/exoskeleton', 'app/conf', 'app/util'], function (Backbone, conf, util) {
     var Cursor = Backbone.View.extend({
-        initialize: function (options) { this.c = options.c },
+        initialize: function (options) {
+            this.c = options.c
+            this.u = options.u
+            this.v = options.v
+            this.color = conf.CURSOR_COLOR
+        },
 
-        render: function (u, v) {
+        render: function () {
             this.c.save()
-            this.c.translate(conf.VIEWPORT_WIDTH * 0.5 + util.viewport.x(u, v) + 0.5,
-                conf.VIEWPORT_HEIGHT * 0.5 + util.viewport.y(v) + 0.5)
+            this.c.translate(conf.VIEWPORT_WIDTH * 0.5 + util.viewport.x(this.u, this.v) + 0.5,
+                conf.VIEWPORT_HEIGHT * 0.5 + util.viewport.y(this.v) + 0.5)
 
             this.c.beginPath()
             this.c.moveTo(0, conf.CELL_HEIGHT_O * -0.5)
@@ -17,7 +22,7 @@ define(['lib/exoskeleton', 'app/conf', 'app/util'], function (Backbone, conf, ut
             this.c.closePath()
 
             this.c.lineWidth = 3
-            this.c.strokeStyle = conf.CURSOR_COLOR
+            this.c.strokeStyle = this.color
             this.c.stroke()
             this.c.restore()
         }

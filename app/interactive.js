@@ -15,19 +15,29 @@ define(['lib/exoskeleton', 'app/conf', 'app/util', 'app/cursor', 'app/cell'],
         },
 
         initialize: function (options) {
+            this.app = options.app
             this.c = options.canvas.getContext('2d')
-            this.cursor = new Cursor({ c: this.c })
             this.setElement(options.canvas)
         },
 
         render: function () {
             this.c.clearRect(0, 0, conf.VIEWPORT_WIDTH, conf.VIEWPORT_HEIGHT)
-            if (this.highlight)
-                this.cursor.render(this.highlight.u, this.highlight.v)
+            if (this.cursor)   this.cursor.render()
             if (this.selected) this.selected.render()
         },
 
-        highlightCell: function (event) { this.highlight = getPos(event) },
+        highlightCell: function (event) {
+            var pos = getPos(event)
+
+            if (this.cursor) {
+                this.cursor.u = pos.u
+                this.cursor.v = pos.v
+            }
+            else this.cursor = new Cursor({ c: this.c, u: pos.u, v: pos.v })
+
+            this.cursor.color = this.app.market.contains(pos.u, pos.v)?
+                conf.MARKET_COLOR: conf.CURSOR_COLOR
+        },
 
         selectCell: function (event) {
             var pos = getPos(event)

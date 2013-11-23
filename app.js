@@ -5,7 +5,9 @@ require.config({
     }
 })
 
-require(['lib/exoskeleton', 'app/conf', 'app/board'], function (Backbone, conf, Board) {
+require(['lib/exoskeleton', 'app/conf', 'app/board', 'app/market', 'app/interactive'],
+        function (Backbone, conf, Board, Market, Interactive) {
+
     var App = Backbone.Router.extend({
         canvas: {
             bg:          document.getElementById('bg'),
@@ -26,15 +28,15 @@ require(['lib/exoskeleton', 'app/conf', 'app/board'], function (Backbone, conf, 
                 }
             }
 
-            this.board = new Board({
-                canvas: this.canvas.bg,
-                iCanvas: this.canvas.interactive,
-                size: conf.BOARD_SIZE
-            })
-            this.interactive = this.board.interactive
+            this.board       = new Board({ app: this, canvas: this.canvas.bg })
+            this.market      = new Market({ app: this, canvas: this.canvas.bg })
+            this.interactive = new Interactive({ app: this, canvas: this.canvas.interactive })
         },
 
-        start: function () { this.board.render() }
+        start: function () {
+            this.board.render()
+            this.market.render()
+        }
     })
 
     var app = new App

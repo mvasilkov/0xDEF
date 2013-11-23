@@ -4,6 +4,7 @@ define(function () {
         BACK_COLOR: '#778188',
         CELL_COLOR: '#c4d6d6',
         CURSOR_COLOR: '#fcdca9',
+        MARKET_COLOR: '#e5f04c',
         // size_i < size_o
         CELL_SIZE_I: 26,
         CELL_SIZE_O: 30,
