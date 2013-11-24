@@ -17,7 +17,9 @@ define(['lib/exoskeleton', 'app/conf', 'app/cell'], function (Backbone, conf, Ce
 
         contains: function (u, v) {
             v += conf.BOARD_SIZE
-            return u == conf.BOARD_SIZE + 3 && v > -1 && v < this.cells.length
+            return u == conf.BOARD_SIZE + 3
+                && v > -1
+                && v < this.cells.length
         }
     })
 
