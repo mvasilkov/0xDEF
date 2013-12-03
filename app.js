@@ -6,7 +6,7 @@ require.config({
 })
 
 require(['lib/exoskeleton', 'app/conf', 'app/board', 'app/market', 'app/interactive'],
-        function (Backbone, conf, Board, Market, Interactive) {
+    function    (Backbone,       conf,       Board,       Market,       Interactive) {
 
     var App = Backbone.Router.extend({
         canvas: {
